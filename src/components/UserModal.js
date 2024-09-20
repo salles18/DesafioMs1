@@ -4,20 +4,20 @@ import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { useUsers } from '../UserContext';
-import { v4 as uuidv4 } from 'uuid'; // Importar uuid
+import { v4 as uuidv4 } from 'uuid'; 
 
 function UserModal({ onClose }) {
   const { register, handleSubmit, reset } = useForm();
-  const { setUsers } = useUsers(); // Usando o contexto
+  const { setUsers } = useUsers(); 
 
   const mutation = useMutation(
     (data) => {
-      const newUser = { ...data, id: uuidv4() }; // Adiciona um ID único
-      return newUser; // Retorna o novo usuário
+      const newUser = { ...data, id: uuidv4() }; 
+      return newUser; 
     },
     {
       onSuccess: (newUser) => {
-        setUsers((prev) => [...prev, newUser]); // Atualiza a lista de usuários
+        setUsers((prev) => [...prev, newUser]); 
         reset();
         onClose();
         toast.success('Usuário cadastrado com sucesso!');
@@ -30,7 +30,7 @@ function UserModal({ onClose }) {
   );
 
   const onSubmit = (data) => {
-    mutation.mutate(data); // Chama a mutação para cadastrar o usuário
+    mutation.mutate(data); 
   };
 
   return (

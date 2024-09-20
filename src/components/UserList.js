@@ -1,4 +1,4 @@
-// src/components/UserList.js
+
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { fetchUsers } from '../api/usersApi';
@@ -10,17 +10,16 @@ function UserList() {
   const [searchTerm, setSearchTerm] = useState('');
   const { users, setUsers } = useUsers();
 
-  // Fetch users from API and update context
+  
   const { error, isLoading } = useQuery('users', fetchUsers, {
     onSuccess: (data) => {
-      setUsers(data); // Atualiza os usuários no contexto
+      setUsers(data); 
     },
   });
 
   if (isLoading) return <p>Carregando usuários...</p>;
   if (error) return <p>Erro ao carregar usuários!</p>;
 
-  // Filtrar usuários com base na pesquisa
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -31,7 +30,7 @@ function UserList() {
         Cadastrar Usuário
       </button>
       
-      {/* Barra de pesquisa */}
+      
       <input
         type="text"
         placeholder="Pesquisar usuário..."
