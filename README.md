@@ -22,7 +22,7 @@ Uma aplicação web para gerenciamento de usuários, que permite cadastrar novos
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/user-management-app.git
+git clone https://github.com/salles18/DesafioMs1
 cd desafio
 ```
 2. Instale as dependências:
